@@ -1,0 +1,45 @@
+@import "../../styles//typography.scss";
+
+.container {
+  width: 100%;
+  padding: 10px 8px 10px 16px;
+  border-radius: 5px;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: stretch;
+}
+
+.input {
+  display: block;
+  background: none;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-right: 1px solid var(--border);
+  @include getFontStyles("base");
+}
+
+.active {
+  display: flex;
+  gap: 12px;
+  padding-left: 34px;
+  align-items: center;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    @include getFontStyles("base");
+  }
+
+  svg {
+    margin-left: auto;
+    color: var(--secondary-text);
+  }
+}

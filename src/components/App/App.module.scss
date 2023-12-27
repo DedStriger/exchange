@@ -1,0 +1,38 @@
+@import "../../styles//typography.scss";
+
+.wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 960px;
+  width: 100%;
+  margin: 20px;
+}
+
+.swap {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+
+  &__icon {
+    flex-shrink: 0;
+  }
+}
+
+.title {
+  color: var(--text);
+  @include getFontStyles("header");
+}
+
+.subtitle {
+  margin-top: 16px;
+  color: var(--text);
+  margin-bottom: 60px;
+}

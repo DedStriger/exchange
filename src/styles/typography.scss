@@ -1,0 +1,23 @@
+@mixin getFontStyles($variant) {
+  @if $variant == header {
+    font-weight: 300;
+    line-height: 120%;
+    font-size: 50px;
+
+    @media (max-width: var(--mobile)) {
+      font-size: 40px;
+    }
+  }
+
+  @if $variant == subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 100%;
+  }
+
+  @if $variant == base {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+  }
+}
