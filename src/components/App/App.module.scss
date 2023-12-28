@@ -10,9 +10,9 @@
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1000px;
   width: 100%;
-  margin: 20px;
+  padding: 20px;
 }
 
 .swap {
@@ -23,6 +23,7 @@
 
   &__icon {
     flex-shrink: 0;
+    cursor: pointer;
   }
 }
 
@@ -35,4 +36,12 @@
   margin-top: 16px;
   color: var(--text);
   margin-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+  .swap {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-end;
+  }
 }

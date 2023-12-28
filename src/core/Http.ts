@@ -3,7 +3,6 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 const HEADERS = {
   JSON: {
     "Content-Type": "application/json;charset=utf-8",
-    "x-changenow-api-key": API_KEY,
   },
   NONE: {},
 } as const;
@@ -19,6 +18,7 @@ type PostProps<T> = {
   url: string;
   body?: T;
   headers?: keyof typeof HEADERS;
+  withApiKey?: boolean;
 };
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -30,13 +30,8 @@ const handleResponse = async <T>(
   if (response.ok) {
     return handler(response);
   } else {
-    throw new Error(
-      (
-        (await response.json()) as {
-          reason: string;
-        }
-      ).reason
-    );
+    const err = await response.json();
+    throw new Error(err.message || err.error || err);
   }
 };
 
@@ -69,8 +64,9 @@ export default class HTTPTransport {
     url,
     body,
     headers = "JSON",
+    withApiKey,
   }: PostProps<TBody>): Promise<TResponse> {
-    return fetch(API_URL + url, {
+    return fetch(`${API_URL}${url}${withApiKey ? "/" + API_KEY : ""}`, {
       method: METHODS.POST,
       headers: HEADERS[headers],
       cache: "reload",

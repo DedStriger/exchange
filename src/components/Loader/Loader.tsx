@@ -7,7 +7,7 @@ export default observer(function Loader() {
   const {
     exchange: { status },
   } = useCore();
-  if (status === ExchangeStatus.Ready) {
+  if (![ExchangeStatus.Error, ExchangeStatus.Load].includes(status)) {
     return null;
   }
   return (

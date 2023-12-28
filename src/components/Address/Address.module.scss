@@ -1,0 +1,87 @@
+@import "../../styles/typography.scss";
+
+.container {
+  margin-top: 32px;
+}
+
+.label {
+  color: var(--text);
+  @include getFontStyles("base");
+  margin-bottom: 8px;
+}
+
+.body {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  gap: 32px;
+  margin-top: 8px;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  @include getFontStyles("base");
+  color: var(--text);
+  border-radius: 5px;
+  outline: none;
+}
+
+.btn {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  width: 100%;
+  background: var(--blue);
+  @include getFontStyles("base");
+  color: var(--white);
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s;
+  cursor: pointer;
+
+  &:hover,
+  &:disabled {
+    background: var(--dark-blue);
+  }
+
+  &[data-success="true"] {
+    pointer-events: none;
+    background: var(--green);
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  &__container {
+    max-width: 205px;
+    width: 100%;
+    flex-shrink: 0;
+  }
+}
+
+.error {
+  margin-top: 8px;
+  text-align: center;
+  @include getFontStyles("base");
+  color: var(--error);
+}
+
+@media (max-width: 768px) {
+  .body {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .btn__container {
+    max-width: none;
+  }
+}

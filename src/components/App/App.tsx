@@ -4,6 +4,7 @@ import { useCore } from "../../hooks";
 import SelectInput from "../SelectInput/SelectInput";
 import styles from "./App.module.scss";
 import Loader from "../Loader/Loader";
+import Address from "../Address/Address";
 
 function App() {
   const {
@@ -15,12 +16,12 @@ function App() {
       setToCurrency,
       setFrom,
       setFromCurrency,
-      setTo,
+      swap,
     },
   } = useCore();
   return (
     <main className={styles.wrapper}>
-      <form className={styles.container}>
+      <div className={styles.container}>
         <h1 className={styles.title}>Crypto Exchange</h1>
         <p className={styles.subtitle}>Exchange fast and easy</p>
         <div className={styles.swap}>
@@ -30,15 +31,16 @@ function App() {
             amount={from}
             setAmount={setFrom}
           />
-          <SwapSvg className={styles.swap__icon} />
+          <SwapSvg className={styles.swap__icon} onClick={swap} />
           <SelectInput
             activeCurrency={toCurrency}
             setCurrency={setToCurrency}
             amount={to}
-            setAmount={setTo}
+            disabled
           />
         </div>
-      </form>
+        <Address />
+      </div>
       <Loader />
     </main>
   );

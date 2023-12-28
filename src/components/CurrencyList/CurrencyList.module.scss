@@ -1,0 +1,45 @@
+@import "../../styles/typography.scss";
+
+.container {
+  position: absolute;
+  top: calc(100% - 3px);
+  z-index: 2;
+  left: -1px;
+  right: -1px;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border);
+  border-radius: 0 0 5px 5px;
+  max-height: 144px;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  &::-moz-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+}
+
+.item {
+  padding: 16px 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  @include getFontStyles("base");
+
+  &:hover {
+    background-color: var(--hover);
+  }
+}
+
+.name {
+  color: var(--secondary-text);
+}
+
+.short_name {
+  text-transform: uppercase;
+}

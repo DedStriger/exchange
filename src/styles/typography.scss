@@ -4,7 +4,7 @@
     line-height: 120%;
     font-size: 50px;
 
-    @media (max-width: var(--mobile)) {
+    @media (max-width: 768px) {
       font-size: 40px;
     }
   }
